@@ -22,7 +22,7 @@ const Edit = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`/api/data/${id}`)
+      .get(`${serverUrl}/api/data/${id}`)
       .then((response) => {
         setName(response.data.name);
         setAge(response.data.age);
