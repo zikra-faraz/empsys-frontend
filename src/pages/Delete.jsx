@@ -4,6 +4,7 @@ import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { serverUrl } from "../constant";
 
 const Delete = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,7 @@ const Delete = () => {
     console.log(id);
     setLoading(true);
     axios
-      .delete(`/api/data/${id}`)
+      .delete(`${serverUrl}/api/data/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Employee's data Deleted successfully", {

@@ -4,6 +4,7 @@ import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { serverUrl } from "../constant";
 
 const Edit = () => {
   const [name, setName] = useState("");
@@ -50,7 +51,7 @@ const Edit = () => {
     };
     setLoading(true);
     axios
-      .put(`/api/data/${id}`, data)
+      .put(`${serverUrl}/api/data/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Employee edited successfully", {

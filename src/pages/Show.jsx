@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { serverUrl } from "../constant";
 
 const Show = () => {
   const [data, setData] = useState({});
@@ -11,7 +12,7 @@ const Show = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`/api/data/${id}`)
+      .get(`${serverUrl}/api/data/${id}`)
       .then((response) => {
         // console.log(response);
         setData(response.data);

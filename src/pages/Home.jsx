@@ -8,6 +8,8 @@ import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import Card from "../components/Card";
 import Spinner from "../components/Spinner";
+import { serverUrl } from "../constant";
+// import { serverUrl } from "../constant";
 
 // import BooksTable from "../components/home/BooksTable";
 // import BooksCard from "../components/home/BooksCard";
@@ -16,12 +18,14 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
-  // const notify = () => toast("Here is your toast.");
 
+  // const notify = () => toast("Here is your toast.");
+  // const server = import.meta.env.VITE_API_URL;
+  // console.log(server);
   useEffect(() => {
     setLoading(true);
     axios
-      .get("/api/data", { params: { limit: 3 } })
+      .get(`${serverUrl}/api/data`)
       .then((response) => {
         // console.log(response.data.data);
         setData(response.data.data);

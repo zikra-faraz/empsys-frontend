@@ -9,6 +9,8 @@ const Navbar = () => {
   console.log(location.pathname);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    const serverUrl = import.meta.env.VITE_API_URL;
+    console.log(serverUrl);
   };
 
   return (

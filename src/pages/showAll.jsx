@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import Card from "../components/Card";
 import Spinner from "../components/Spinner";
+import { serverUrl } from "../constant";
 
 // import BooksTable from "../components/home/BooksTable";
 // import BooksCard from "../components/home/BooksCard";
@@ -19,7 +20,7 @@ const ShowAll = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("/api/data/all")
+      .get(`${serverUrl}/api/data/all`)
       .then((response) => {
         // console.log(response.data.data);
         setData(response.data.data);
